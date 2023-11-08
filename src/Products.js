@@ -1,4 +1,5 @@
 function Products() {
+    
     const productsFromDb = [
       {
         title: "Iphone 15 pro",
@@ -8,7 +9,7 @@ function Products() {
       {
         title: "TV Sony 6K Full",
         price: 1599,
-        isPublished: true,
+        isPublished: false,
       },
       {
         title: "Playstation 5 with Rom",
@@ -18,19 +19,32 @@ function Products() {
       
     ];
   
-    return (
+    return(
       <main>
-        {productsFromDb.map((product) => {
-          return (
-            <article>
-              <h2>{product.title}</h2>
-              <p>{product.price} €</p>
-            </article>
-          );
-        })}
+
+          {productsFromDb.map((product) => {
+              return(
+                  <>
+                      {product.isPublished ? 
+                      (
+                      <article>
+                          <h2>{product.title}</h2>
+                          <p>{product.price}</p>
+                      </article>
+                      ):(
+                        <>
+                          <h2>{product.title}</h2>
+                          <p> Pas disponible </p>
+                        </>
+                      )}
+                      
+                  </>
+              
+          )})}
       </main>
-    );
-  }
+
+  )
+}
   
   export default Products;
 
@@ -60,4 +74,11 @@ Dans le JSX du composant Products, faites une boucle sur ce tableau (avec map) p
           <p>350 $</p>
         </article>
       </div>
+ */
+
+/**
+ * 
+EXO : 
+Dans votre composant Products, remplacez le tableau de titre produits avec un tableau contenant des objets (avec titre, prix et isPublished)
+Modifier votre rendu JSX du composant pour que la boucle fonctionne avec votre nouveau tableau
  */
